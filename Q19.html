@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In Form</title>
+    <style>
+        input {
+            display: block;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+        <label for="password">Password</label>
+        <input type="password" id="password">
+        <button>Submit</button>
+    </form>
+
+    <script>
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let button = document.querySelector("button")
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^.{8,}$/;
+
+        button.addEventListener('click', function () {
+            if (emailRegex.test(email.value) && passwordRegex.test(password.value)) {
+                let newPara = document.createElement('p');
+                let p = newPara.appendChild(document.createTextNode('Valid email and password!'));
+                document.body.appendChild(p);
+                newPara.style.color = 'green';
+            } else {
+                let newPara = document.createElement('p');
+                let p = newPara.appendChild(document.createTextNode('Invalid email or password!'));
+                document.body.appendChild(p);
+                newPara.style.color = 'red';
+                newPara.style.fontSize = '18px';
+            }
+        })
+    </script>
+</body>
+
+</html>
