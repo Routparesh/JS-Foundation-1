@@ -27,28 +27,28 @@
         <label for="password">Password</label>
         <input type="password" id="password">
         <button>Submit</button>
+        <div id="box"></div>
     </form>
 
     <script>
         let email = document.getElementById("email");
         let password = document.getElementById("password");
         let button = document.querySelector("button")
+        let box = document.querySelector("#box");
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^.{8,}$/;
 
-        button.addEventListener('click', function () {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
             if (emailRegex.test(email.value) && passwordRegex.test(password.value)) {
-                let newPara = document.createElement('p');
-                let p = newPara.appendChild(document.createTextNode('Valid email and password!'));
-                document.body.appendChild(p);
-                newPara.style.color = 'green';
+                box.innerHTML = `<span>Valid email and password!</span>`;
+                box.style.color = 'green';
+                box.style.marginTop = '20px';
             } else {
-                let newPara = document.createElement('p');
-                let p = newPara.appendChild(document.createTextNode('Invalid email or password!'));
-                document.body.appendChild(p);
-                newPara.style.color = 'red';
-                newPara.style.fontSize = '18px';
+                box.innerHTML = `<span>Invalid email or password!</span>`;
+                box.style.color = 'red';
+                box.style.marginTop = '20px';
             }
         })
     </script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Highlight Words</title>
+        <style>
+            .highlight {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <p id="paragraph">
+            This is a sample paragrh with some words that are longer than 8 characters. My name is pareshkumar rout
+        </p>
+
+        <script>
+            // Get the paragraph element
+            const paragraph = document.getElementById('paragraph');
+
+            // Split the paragraph into words
+            const words = paragraph.textContent.split(/\s+/);
+
+            // Iterate through the words
+            words.forEach(word => {
+                // Check if the word length is greater than 8
+                if (word.length > 8) {
+                    // Create a span element for the highlighted word
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    span.classList.add('highlight');
+
+                    // Replace the original word with the highlighted span
+                    paragraph.innerHTML = paragraph.innerHTML.replace(word, span.outerHTML);
+                }
+            });
+        </script>
+
+    </body>
+
+    </html>
+
+</body>
+
+</html>
