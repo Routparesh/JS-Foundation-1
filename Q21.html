@@ -8,7 +8,25 @@
 </head>
 
 <body>
+    <form action="">
+        <label for="text">Enter To-Do</label>
+        <input type="text" id="text">
+        <button>Submit</button>
+        <div class="todo"></div>
+    </form>
 
+    <script>
+        let input = document.getElementById("text");
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            let div = document.createElement('div');
+            div.appendChild(document.createTextNode(input.value))
+            document.querySelector('.todo').appendChild(div)
+        })
+    </script>
 </body>
 
 </html>

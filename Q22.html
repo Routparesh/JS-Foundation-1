@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+
+        .container {
+            height: 20px;
+            width: 80%;
+            border: 2px solid black;
+            border-radius: 20px;
+            position: absolute;
+        }
+
+        .round {
+            height: 20px;
+            width: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="round"></div>
+    </div>
+    <script>
+        let round = document.querySelector('.round');
+        var body = document.body;
+        body.addEventListener('click', function (e) {
+            round.style.transform = 'translateX(1600%)'
+        })
+    </script>
+</body>
+
+</html>
